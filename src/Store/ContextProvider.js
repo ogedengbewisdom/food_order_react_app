@@ -8,7 +8,7 @@ const ContextProvider = (props) => {
     const addItemHandler = (item) => {}
 
     const contextValue = {
-        item: [],
+        items: [],
         totalAmount: 0,
         removeItem: removeItemHandler,
         addItem: addItemHandler
