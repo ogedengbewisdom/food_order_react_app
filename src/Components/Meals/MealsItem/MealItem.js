@@ -9,12 +9,12 @@ const MealItem = (props) => {
     const cartCtx = useContext(CartContext)
 
     const addToCartHandler = (amount) => {
-        cartCtx.addItem({
+        cartCtx.addItem([{
             id: props.id,
             name: props.name,
             amount: amount,
             price: props.price
-        })
+        }])
     }
     return (
         <li className={classes.meal}>
