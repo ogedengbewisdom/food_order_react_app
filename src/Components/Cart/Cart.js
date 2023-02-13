@@ -13,8 +13,8 @@ const Cart = (props) => {
 
     const addItemHandler = item => {
         let amount = 1
-        const cartAdd = {...item, amount: amount++}
-        cartCtx.addItem(cartAdd)
+        cartCtx.addItem({...item, amount: amount++})
+        
     }
     const removeItemHandler = id => {
         cartCtx.removeItem(id)
