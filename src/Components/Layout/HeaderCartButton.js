@@ -6,28 +6,28 @@ import classes from "./HeaderCartButton.module.css"
 
 const HeaderCartButton = (props) => {
 
-    const cartCtx = useContext(CartContext)
-    const {items} = cartCtx
+    const cartCtx = useContext(CartContext);
+    const {items} = cartCtx;
     const numberOfCartItems = items.reduce((currentNumber, item) => {
         return currentNumber + item.amount
-    }, 0)
+    }, 0);
 
-    const [btnIsHighligted, setBtnIsHighLighted] = useState(false)
+    const [btnIsHighligted, setBtnIsHighLighted] = useState(false);
 
-    const keyframeButtons  = `${classes.button} ${btnIsHighligted ? classes.bump : ""}`
+    const keyframeButtons  = `${classes.button} ${btnIsHighligted ? classes.bump : ""}`;
 
     useEffect(() => {
         if (items.length === 0) {
             return;
-        }
+        };
         setBtnIsHighLighted(true)
         const timer = setTimeout(() => {
-            setBtnIsHighLighted(false)
+            setBtnIsHighLighted(false);
         }, 300);
         
         return () => {
-            clearTimeout(timer)
-        }
+            clearTimeout(timer);
+        };
     },[items])
     return (
         <button className={keyframeButtons} onClick={props.onClick}>
@@ -40,4 +40,4 @@ const HeaderCartButton = (props) => {
     )
 }
 
-export default HeaderCartButton
+export default HeaderCartButton;
