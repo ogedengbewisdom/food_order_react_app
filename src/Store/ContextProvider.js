@@ -33,18 +33,18 @@ const cartReducer = (state, action) => {
     } 
 
     if (action.type === "REMOVE") {
-        const existingCartItemIndex = state.items.findIndex(item => item.id === action.id) 
-        const existingCartItem = state.items[existingCartItemIndex]
-        const updatedTotalAmount = state.totalAmount - existingCartItem.price
+        const existingCartItemIndex = state.items.findIndex(item => item.id === action.id); 
+        const existingCartItem = state.items[existingCartItemIndex];
+        const updatedTotalAmount = state.totalAmount - existingCartItem.price;
 
         let updatedItems;
 
         if (existingCartItem.amount === 1) {
-            updatedItems = state.items.filter(item => item.id !== action.id)
+            updatedItems = state.items.filter(item => item.id !== action.id);
         } else {
-            const updatedItem = {...existingCartItem, amount: existingCartItem.amount - 1}
-            updatedItems = [...state.items]
-            updatedItems[existingCartItemIndex] = updatedItem
+            const updatedItem = {...existingCartItem, amount: existingCartItem.amount - 1};
+            updatedItems = [...state.items];
+            updatedItems[existingCartItemIndex] = updatedItem;
         }
 
         return {
@@ -53,19 +53,19 @@ const cartReducer = (state, action) => {
         }
     }
 
-    return defaultCartState
+    return defaultCartState;
 }
 
 const ContextProvider = (props) => {
 
-    const [cartState, dispatchCartState] = useReducer(cartReducer, defaultCartState)
+    const [cartState, dispatchCartState] = useReducer(cartReducer, defaultCartState);
 
     const removeItemHandler = (id) => {
-        dispatchCartState({type: "REMOVE", id: id})
+        dispatchCartState({type: "REMOVE", id: id});
     }
 
     const addItemHandler = (item) => {
-        dispatchCartState({type: "ADD", item: item})
+        dispatchCartState({type: "ADD", item: item});
     }
 
     const contextValue = {
@@ -82,4 +82,4 @@ const ContextProvider = (props) => {
     )
 }
 
-export default ContextProvider
+export default ContextProvider;
