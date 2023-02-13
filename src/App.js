@@ -6,14 +6,14 @@ import ContextProvider from "./Store/ContextProvider";
 
 function App() {
 
-  const [cartIsShown, setCartIsShown] = useState(false)
+  const [cartIsShown, setCartIsShown] = useState(false);
 
   const showCartHandler = () => {
-    setCartIsShown(true)
+    setCartIsShown(true);
   }
 
   const hideCartHandler = () => {
-    setCartIsShown(false)
+    setCartIsShown(false);
   }
   return (
     <ContextProvider>
