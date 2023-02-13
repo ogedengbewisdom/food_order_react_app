@@ -20,8 +20,8 @@ const Cart = (props) => {
           name={item.name} 
           amount={item.amount} 
           price={item.price} 
-          onRemove={removeItemHandler} 
-          onAdd={addItemHandler}
+          onRemove={removeItemHandler.bind(null, item.id)} 
+          onAdd={addItemHandler.bind(null, item)}
            />)}
            </ul>
     const showOrderBtn = cartCtx.items.length > 0
