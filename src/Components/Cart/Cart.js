@@ -8,16 +8,16 @@ import CartItems from "./CartItems"
 
 const Cart = (props) => {
 
-    const cartCtx = useContext(CartContext)
-    const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`
+    const cartCtx = useContext(CartContext);
+    const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
 
     const addItemHandler = item => {
-        let amount = 1
-        cartCtx.addItem({...item, amount: amount++})
+        let amount = 1;
+        cartCtx.addItem({...item, amount: amount++});
         
     }
     const removeItemHandler = id => {
-        cartCtx.removeItem(id)
+        cartCtx.removeItem(id);
     }
 
     const cartItems = <ul className={classes["cart-items"]}>{cartCtx.items.map(item =>
@@ -47,4 +47,4 @@ const Cart = (props) => {
 }
 
 
-export default Cart
+export default Cart;
