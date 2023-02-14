@@ -5,8 +5,8 @@ import MealItemForm from "./MealItemForm"
 
 const MealItem = (props) => {
 
-    const price = `$${props.price.toFixed(2)}`
-    const cartCtx = useContext(CartContext)
+    const price = `$${props.price.toFixed(2)}`;
+    const cartCtx = useContext(CartContext);
 
     const addToCartHandler = (amount) => {
         cartCtx.addItem({
@@ -30,4 +30,4 @@ const MealItem = (props) => {
     )
 }
 
-export default MealItem
+export default MealItem;
