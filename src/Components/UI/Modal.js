@@ -16,7 +16,7 @@ const Modal = (props) => {
         )
     }
 
-    const portalElement = document.getElementById("overlay")
+    const portalElement = document.getElementById("overlay");
 
     return (
         <Fragment>
@@ -26,4 +26,4 @@ const Modal = (props) => {
     )
 }
 
-export default Modal
+export default Modal;
