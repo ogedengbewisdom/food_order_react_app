@@ -37,7 +37,8 @@ const AvailableMeals = () => {
   const [meals, setMeals] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
-  const fetchMeals = async () => {
+  useEffect(()=> {
+      const fetchMeals = async () => {
     try {
       const response = await fetch(`https://foodorderapp-1a847-default-rtdb.firebaseio.com/meals.json`)
       if ( !response.ok ) {
@@ -64,8 +65,6 @@ const AvailableMeals = () => {
     }
     setIsLoading(false)
   }
-
-  useEffect(()=> {
     fetchMeals()
   }, [])
 
