@@ -84,9 +84,9 @@ const AvailableMeals = () => {
          if (meals.length > 0) {
           movieContent = <ul>{mealsList}</ul>
          } else if (isLoading) {
-          movieContent = <p>Loading...</p>
+          movieContent = <p className={classes.isLoading}>Loading...</p>
          } else if (error) {
-          movieContent = <p>{error}</p>
+          movieContent = <p className={classes.errorText}>{error}</p>
          }
 
     return (
