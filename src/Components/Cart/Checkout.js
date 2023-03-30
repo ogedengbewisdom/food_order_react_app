@@ -64,7 +64,7 @@ const Checkout = (props) => {
                 "Postal Code": postal,
                 City: city
             }
-            console.log(data)
+            props.onConfirm(data)
             nameReset()
             streetReset()
             cityReset()
