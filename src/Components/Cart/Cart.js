@@ -25,6 +25,37 @@ const Cart = (props) => {
         setIsCheckout(true)
     }
 
+    const confirmOrderHandler = async (userData) => {
+
+        try {
+            const response = await fetch( `https://foodorderapp-1a847-default-rtdb.firebaseio.com/order.json`, {
+                method: "POST",
+                body: JSON.stringify ({
+                    user: userData,
+                    orderedItem: cartCtx.items
+                }),
+                headers: {
+                   "Content-Type" : "application/json"    
+                }
+            } )
+
+            
+            if (!response.ok) {
+                throw new Error("Something went wrong")
+            }
+
+            const data = await response.json()
+
+            const orderId = data.name
+            const orderItem = {id: orderId, user: userData}
+            console.log(orderItem.user)
+        }   
+        
+        catch (error) {
+            console.log(error.message)
+        }
+    }
+
     const cartItems = <ul className={classes["cart-items"]}>{cartCtx.items.map(item =>
          <CartItems
           key={item.id} 
@@ -49,7 +80,7 @@ const Cart = (props) => {
                 <span>Total Amount</span>
                 <span>{totalAmount}</span>
             </div>
-            {isCheckout && <Checkout onCancel={props.onCloseCart} />}
+            {isCheckout && <Checkout onConfirm={confirmOrderHandler} onCancel={props.onCloseCart} />}
             {!isCheckout && modalAction}
         </Modal>
     )
