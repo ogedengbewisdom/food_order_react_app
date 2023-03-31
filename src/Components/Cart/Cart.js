@@ -57,6 +57,7 @@ const Cart = (props) => {
         }
         setSubmited(true)
         setIsSubmiting(false)
+        cartCtx.resetItem()
     }
 
     const cartItems = <ul className={classes["cart-items"]}>{cartCtx.items.map(item =>
