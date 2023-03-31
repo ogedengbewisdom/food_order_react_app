@@ -16,8 +16,7 @@ const Cart = (props) => {
 
     const addItemHandler = item => {
         let amount = 1;
-        cartCtx.addItem({...item, amount: amount++});
-        
+        cartCtx.addItem({...item, amount: amount++});     
     }
     const removeItemHandler = id => {
         cartCtx.removeItem(id);
@@ -81,22 +80,32 @@ const Cart = (props) => {
   let cartOrderContent = <p>Sending Order data...</p>
 
   if (!isSubmiting) {
-    cartOrderContent =     
-    
-    <Fragment>
-        {cartItems}
-        <div className={classes.total}>
-            <span>Total Amount</span>
-            <span>{totalAmount}</span>
-        </div>
-        {isCheckout && <Checkout onConfirm={confirmOrderHandler} onCancel={props.onCloseCart} />}
-        {!isCheckout && modalAction}
+    cartOrderContent = <Fragment>
+
+            {cartItems}
+            <div className={classes.total}>
+                <span>Total Amount</span>
+                <span>{totalAmount}</span>
+            </div>
+            {isCheckout && <Checkout onConfirm={confirmOrderHandler} onCancel={props.onCloseCart} />}
+            {!isCheckout && modalAction}
+
+    </Fragment>
+  }
+
+  let succes = cartOrderContent
+  if ( submited ) {
+    succes = <Fragment>
+    <p>Your Order have been placed succesfully</p>
+    <div className={classes.actions}>
+       <button className={classes.button} onClick={props.onCloseCart}>Close</button>
+    </div>
     </Fragment>
   }
   
     return (
         <Modal onClick={props.onCloseCart}>
-            {cartOrderContent}
+            {succes}
         </Modal>
     )
 }
