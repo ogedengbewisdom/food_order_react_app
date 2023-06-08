@@ -79,20 +79,20 @@ const AvailableMeals = () => {
            price={meal.price}
          />)
 
-         let movieContent = <p>No meals available!</p> 
+         let mealContent = <p>No meals available!</p> 
 
          if (meals.length > 0) {
-          movieContent = <ul>{mealsList}</ul>
+          mealContent = <ul>{mealsList}</ul>
          } else if (isLoading) {
-          movieContent = <p className={classes.isLoading}>Loading...</p>
+          mealContent = <p className={classes.isLoading}>Loading...</p>
          } else if (error) {
-          movieContent = <p className={classes.errorText}>{error}</p>
+          mealContent = <p className={classes.errorText}>{error}</p>
          }
 
     return (
     <div className={classes.meals}>
         <Card> 
-          {movieContent} 
+          {mealContent} 
         </Card>
     </div>
     )
