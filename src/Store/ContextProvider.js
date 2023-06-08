@@ -52,7 +52,7 @@ const cartReducer = (state, action) => {
             totalAmount: updatedTotalAmount
         }
     } if ( action.type === "RESET" ) {
-        return defaultCartState
+        return defaultCartState 
     }
 
     return defaultCartState;
