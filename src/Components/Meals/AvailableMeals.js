@@ -42,7 +42,7 @@ const AvailableMeals = () => {
         setError(null)
         setIsLoading(true)
     try {
-      const response = await fetch(`https://foodorderapp-1a847-default-rtdb.firebaseio.com/meals.json`)
+      const response = await fetch(`https://food-order-app-9b1ad-default-rtdb.firebaseio.com/meals.json`)
       if ( !response.ok ) {
         throw new Error("Something went wrong try again later")
       }
