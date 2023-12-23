@@ -12,7 +12,7 @@ const Cart = (props) => {
     const [ isSubmiting, setIsSubmiting ] = useState(false)
     const [ submited, setSubmited ] = useState(false)
     const cartCtx = useContext(CartContext);
-    const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+    const totalAmount = `N${cartCtx.totalAmount.toFixed(2)}`;
 
     const addItemHandler = item => {
         let amount = 1;
